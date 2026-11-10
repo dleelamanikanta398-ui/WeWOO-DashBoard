@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+}
+
+/* Custom Leaflet Map styling for command center dark mode */
+.dark .dark-map-tiles .leaflet-tile-pane {
+  filter: brightness(0.8) invert(1) contrast(2.6) hue-rotate(200deg) saturate(0.2) brightness(0.7);
+}
+
+/* In light mode, standard clean OpenStreetMap presentation */
+html:not(.dark) .dark-map-tiles .leaflet-tile-pane {
+  filter: none;
+}
+
+.custom-hospital-pin,
+.custom-ambulance-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Leaflet control styling overrides */
+.leaflet-bar {
+  border: 1px solid rgba(51, 65, 85, 0.4) !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.15) !important;
+  border-radius: 8px !important;
+  overflow: hidden;
+}
+
+.dark .leaflet-bar {
+  border-color: rgba(51, 65, 85, 0.8) !important;
+}
+
+.leaflet-bar a {
+  background-color: #ffffff !important;
+  color: #334155 !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+.dark .leaflet-bar a {
+  background-color: #0f172a !important;
+  color: #94a3b8 !important;
+  border-bottom: 1px solid #1e293b !important;
+}
+
+.leaflet-bar a:hover {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+.dark .leaflet-bar a:hover {
+  background-color: #1e293b !important;
+  color: #f1f5f9 !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border-radius: 8px !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3) !important;
+}
+
+.leaflet-popup-tip {
+  background: #ffffff !important;
+}
